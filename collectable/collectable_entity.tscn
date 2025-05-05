@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://kl8sfv1b6d25"]
+
+[ext_resource type="Script" path="res://collectable/Base_Collectable_Entity.gd" id="1_0iop6"]
+[ext_resource type="Resource" uid="uid://qqf2i47r33kr" path="res://Scenes/resources/collectable/collectable resources/coin 1.tres" id="2_463uq"]
+[ext_resource type="Texture2D" uid="uid://djvl4jcj5i356" path="res://Sprites/Coin.png" id="3_kjol1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yhxp5"]
+radius = 16.0312
+
+[sub_resource type="Animation" id="Animation_5i4v6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kjol1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_v1klu"]
+resource_name = "coin 1"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_kjol1"), ExtResource("3_kjol1"), ExtResource("3_kjol1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 0), Vector2(0, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 10), Vector2(0, 0), Vector2(0, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n0vw1"]
+_data = {
+"RESET": SubResource("Animation_5i4v6"),
+"coin 1": SubResource("Animation_v1klu")
+}
+
+[node name="Collectable_Entity" type="Area2D"]
+position = Vector2(0, -10)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_0iop6")
+collectable_resource = ExtResource("2_463uq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("CircleShape2D_yhxp5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_kjol1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n0vw1")
+}

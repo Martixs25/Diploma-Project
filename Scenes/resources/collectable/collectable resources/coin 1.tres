@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CurrencyResource" load_steps=3 format=3 uid="uid://qqf2i47r33kr"]
+
+[ext_resource type="Texture2D" uid="uid://r7ga20rqmva7" path="res://Sprites/Coin-removebg-preview.png" id="1_85crv"]
+[ext_resource type="Script" path="res://Scenes/resources/collectable/Currency_Resource.gd" id="1_qs7fx"]
+
+[resource]
+script = ExtResource("1_qs7fx")
+value = 1
+collectable_texture = ExtResource("1_85crv")
+collectable_type = "coin"

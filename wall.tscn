@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7yb8vid22crc"]
+
+[ext_resource type="Texture2D" uid="uid://m25fwt6hpe7y" path="res://dodge_the_creeps_2d_assets/art/playerGrey_up1.png" id="1_41n4w"]
+[ext_resource type="Script" path="res://Player.gd" id="1_57cd4"]
+[ext_resource type="Script" path="res://Wall.gd" id="1_cxle7"]
+[ext_resource type="Texture2D" uid="uid://2u082rs0nrwv" path="res://dodge_the_creeps_2d_assets/art/playerGrey_up2.png" id="2_wckcr"]
+[ext_resource type="Texture2D" uid="uid://dhyktchwiw44j" path="res://dodge_the_creeps_2d_assets/art/playerGrey_walk1.png" id="3_hapus"]
+[ext_resource type="Texture2D" uid="uid://boi3b5yyo2uk8" path="res://dodge_the_creeps_2d_assets/art/playerGrey_walk2.png" id="4_ltlek"]
+[ext_resource type="Script" path="res://Obstacales.gd" id="7_busey"]
+[ext_resource type="PackedScene" uid="uid://kl8sfv1b6d25" path="res://collectable/collectable_entity.tscn" id="8_mifys"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_datju"]
+size = Vector2(4.78e+07, 6.4e+06)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xiiah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_41n4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wckcr")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hapus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ltlek")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2lvot"]
+radius = 55.0
+height = 138.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgh22"]
+radius = 31.0644
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(210, 463)
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_cxle7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(2.99999e+06, 3.2e+06)
+shape = SubResource("RectangleShape2D_datju")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall"]
+position = Vector2(-2.1e+07, 0)
+scale = Vector2(5.77108, 1)
+polygon = PackedVector2Array(0, 0, 8.3e+06, 0, 8.3e+06, 3.22855e+06, 8.3e+06, 6.4e+06, 0, 6.4e+06, 0, 2.98366e+06)
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["player"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_57cd4")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(272, 112)
+sprite_frames = SubResource("SpriteFrames_xiiah")
+animation = &"walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(272, 112)
+shape = SubResource("CapsuleShape2D_2lvot")
+
+[node name="Obstacale" type="StaticBody2D" parent="."]
+position = Vector2(12, 434)
+script = ExtResource("7_busey")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacale"]
+shape = SubResource("CircleShape2D_vgh22")
+
+[node name="Polygon2D" type="Polygon2D" parent="Obstacale"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-4, 31, 1, 31, 12, 29, 23, 21, 30, 8, 31, -1, 27, -15, 18, -25, 7, -31, -7, -31, -18, -25, -27, -16, -31, -4, -30, 6, -27, 15, -22, 23, -13, 28)
+
+[node name="Collectable_Container" type="Node2D" parent="."]
+
+[node name="Collectable_Entity" parent="Collectable_Container" instance=ExtResource("8_mifys")]
+position = Vector2(432, 429)

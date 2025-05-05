@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://hglswdypsw6q"]
+
+[ext_resource type="Script" path="res://wallV2.gd" id="1_veygy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p3pe"]
+size = Vector2(248, 20)
+
+[node name="WallV2" type="StaticBody2D"]
+position = Vector2(10, 10)
+script = ExtResource("1_veygy")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(114, 0)
+shape = SubResource("RectangleShape2D_6p3pe")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-10, 10, 238, 10, 238, -10, -10, -10)

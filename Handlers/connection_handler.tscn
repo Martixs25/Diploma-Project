@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ycttusmgn5b6"]
+
+[ext_resource type="Script" path="res://Handlers/Connection_Handler.gd" id="1_hbr1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8hbw"]
+size = Vector2(20, 23)
+
+[node name="Connection_Handler" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_hbr1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_j8hbw")
