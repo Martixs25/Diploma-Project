@@ -75,20 +75,17 @@ func handle_jump() -> void:
 		double_jump = true
 		jump_active = true
 		print (double_jump)
-		
-	if is_on_floor(): 
+
+
+	elif is_on_floor(): 
 		double_jump = true
 		jump_active = false
-	
-	if Input.is_action_just_released("jump", jump_active == true):
-		jump_active = false
-		velocity.y = falling_speed
-		
-	if Input.is_action_just_pressed("jump") and double_jump and is_on_floor() == false:
+
+	elif Input.is_action_just_pressed("jump") and double_jump and is_on_floor() == false:
 		velocity.y = -jump_speed
 		double_jump = false
 		print (double_jump)
-		
+
 	clampf(velocity.y, jump_speed, fall_speed)
 		
 func flip_character() -> void: 

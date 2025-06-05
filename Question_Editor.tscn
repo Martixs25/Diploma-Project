@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=3 uid="uid://bchnuxvm44nxn"]
+
+[ext_resource type="Script" path="res://Question.gd" id="1_m10pq"]
+[ext_resource type="Texture2D" uid="uid://1e1qq1g5gixy" path="res://Sprites/Tiles/Backgrounds/tile_0010.png" id="2_q5s8j"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m10pq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_q5s8j")
+
+[node name="Question" type="Label" parent="."]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 75.0
+offset_right = 755.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+autowrap_mode = 3
+
+[node name="Answer1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 250.0
+offset_right = 342.0
+offset_bottom = 302.0
+
+[node name="Answer2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 250.0
+offset_right = 792.0
+offset_bottom = 302.0
+
+[node name="Answer3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 375.0
+offset_right = 342.0
+offset_bottom = 427.0
+
+[node name="Answer4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 375.0
+offset_right = 792.0
+offset_bottom = 427.0
+
+[connection signal="pressed" from="Answer1" to="." method="_on_answer_1_pressed"]
+[connection signal="pressed" from="Answer2" to="." method="_on_answer_2_pressed"]
+[connection signal="pressed" from="Answer3" to="." method="_on_answer_3_pressed"]
+[connection signal="pressed" from="Answer4" to="." method="_on_answer_4_pressed"]

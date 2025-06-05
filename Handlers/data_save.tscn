@@ -1,0 +1,107 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0wromojv4io0"]
+
+[ext_resource type="Script" path="res://Data_save.gd" id="1_i00vq"]
+[ext_resource type="Texture2D" uid="uid://1e1qq1g5gixy" path="res://Sprites/Tiles/Backgrounds/tile_0010.png" id="2_us1yq"]
+
+[sub_resource type="SystemFont" id="SystemFont_p2gjb"]
+font_names = PackedStringArray("Impact")
+
+[node name="Data_Save" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i00vq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 540.0
+texture = ExtResource("2_us1yq")
+
+[node name="Back_Button" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 40.0
+theme_override_fonts/font = SubResource("SystemFont_p2gjb")
+theme_override_font_sizes/font_size = 25
+text = "Back"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 250.0
+offset_right = 342.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter Answer Here"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 250.0
+offset_right = 792.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter Answer Here"
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 375.0
+offset_right = 342.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter Answer Here"
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 375.0
+offset_right = 792.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter Answer Here"
+
+[node name="OptionButton" type="OptionButton" parent="."]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 460.0
+offset_right = 493.0
+offset_bottom = 487.0
+
+[node name="QuestionEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 205.0
+offset_top = 75.0
+offset_right = 755.0
+offset_bottom = 155.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/search_result_border_color = Color(0, 0, 0, 1)
+placeholder_text = "Enter question here"
+wrap_mode = 1
+
+[node name="Save_Button" type="Button" parent="."]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 0
+offset_left = 670.0
+offset_top = 460.0
+offset_right = 792.0
+offset_bottom = 500.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.694118, 0.694118, 0.694118, 1)
+text = "Save"
+
+[connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
+[connection signal="toggled" from="OptionButton" to="." method="_on_option_button_toggled"]
+[connection signal="button_down" from="Save_Button" to="." method="_on_save_button_button_down"]
+[connection signal="pressed" from="Save_Button" to="." method="_on_save_button_pressed"]

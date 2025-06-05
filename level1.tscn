@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7p6wef7babg4"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_t0ctp"]
+[ext_resource type="PackedScene" uid="uid://bohphyixfbcti" path="res://Scenes/managers/collectable_manager.tscn" id="2_sg4m0"]
+[ext_resource type="PackedScene" uid="uid://dsv0uvbtednyl" path="res://Scenes/managers/player_stat_manager.tscn" id="3_8or11"]
+[ext_resource type="PackedScene" uid="uid://hglswdypsw6q" path="res://wallV2.tscn" id="4_nydhn"]
+[ext_resource type="PackedScene" uid="uid://v05djw03ju0p" path="res://Flag.tscn" id="5_6fmb6"]
+[ext_resource type="PackedScene" uid="uid://kl8sfv1b6d25" path="res://collectable/collectable_entity.tscn" id="6_ivs51"]
+[ext_resource type="PackedScene" uid="uid://cggqyd53coaa" path="res://Player.tscn" id="7_5g1xq"]
+[ext_resource type="PackedScene" uid="uid://b3y41dyj8hisb" path="res://death_collision.tscn" id="8_yfhkn"]
+[ext_resource type="PackedScene" uid="uid://c4t6kyoufuwde" path="res://Scenes/UI/ui_control.tscn" id="9_fwd6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uy0d"]
+size = Vector2(3129, 43)
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("level_start_pos")]
+script = ExtResource("1_t0ctp")
+level_start_pos = NodePath("Manager_Container/Player_Start")
+
+[node name="Manager_Container" type="Node" parent="."]
+
+[node name="Collectable_Manager" parent="Manager_Container" instance=ExtResource("2_sg4m0")]
+
+[node name="Player_Stat_Manager" parent="Manager_Container" instance=ExtResource("3_8or11")]
+
+[node name="Player_Start" type="Node2D" parent="Manager_Container"]
+position = Vector2(250, 300)
+
+[node name="Level_Container" type="Node2D" parent="."]
+
+[node name="StaticBody2D" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(185, 463)
+
+[node name="StaticBody2D2" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(451, 383)
+
+[node name="StaticBody2D6" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(741, 282)
+
+[node name="StaticBody2D12" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(951, 190)
+rotation = -0.785398
+
+[node name="StaticBody2D7" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(832, 421)
+
+[node name="StaticBody2D11" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(1233, 37)
+
+[node name="StaticBody2D13" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(1233, 140)
+
+[node name="StaticBody2D8" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(1233, 284)
+rotation = 1.5708
+
+[node name="StaticBody2D9" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(1233, 37)
+rotation = 1.5708
+
+[node name="StaticBody2D10" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(1233, 37)
+rotation = 1.5708
+
+[node name="StaticBody2D4" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(354, 508)
+scale = Vector2(0.04, 1)
+
+[node name="StaticBody2D3" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(45, 528)
+scale = Vector2(3, 1)
+
+[node name="StaticBody2D5" parent="Level_Container" instance=ExtResource("4_nydhn")]
+position = Vector2(783, 528)
+scale = Vector2(3, 1)
+
+[node name="Flag" parent="Level_Container" instance=ExtResource("5_6fmb6")]
+position = Vector2(1418, -5)
+collision_layer = 6
+collision_mask = 2
+
+[node name="Collectable_Container" type="Node2D" parent="."]
+
+[node name="Collectable_Entity" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(561, 349)
+
+[node name="Collectable_Entity7" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(1108, -66)
+
+[node name="Collectable_Entity2" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(470, 496)
+
+[node name="Collectable_Entity6" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(1010, 377)
+
+[node name="Collectable_Entity3" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(104, 482)
+
+[node name="Collectable_Entity4" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(1300, 93)
+
+[node name="Collectable_Entity5" parent="Collectable_Container" instance=ExtResource("6_ivs51")]
+position = Vector2(348, 416)
+
+[node name="Entity_Container" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="Entity_Container" instance=ExtResource("7_5g1xq")]
+position = Vector2(250, 361)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(250, 366)
+format = 2
+
+[node name="Death_collision" parent="TileMap" instance=ExtResource("8_yfhkn")]
+position = Vector2(1, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Death_collision"]
+position = Vector2(515.5, 230)
+shape = SubResource("RectangleShape2D_2uy0d")
+
+[node name="UI_Container" type="CanvasLayer" parent="."]
+
+[node name="UI_Control" parent="UI_Container" instance=ExtResource("9_fwd6q")]

@@ -104,7 +104,7 @@ custom_minimum_size = Vector2(120, 32)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_yduan")
 theme_override_font_sizes/font_size = 25
-text = "Options"
+text = "Edit Questions"
 
 [node name="Exit_Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 32)

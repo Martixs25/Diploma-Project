@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csci64d0sqbt8"]
 
+[ext_resource type="Texture2D" uid="uid://cenwnclp3q6xt" path="res://Sprites/Tiles/Backgrounds/tile_0014.png" id="1_kka4g"]
 [ext_resource type="Script" path="res://main_menu/level_select.gd" id="1_nbf28"]
-[ext_resource type="Texture2D" uid="uid://buk7vd61atx1o" path="res://Sprites/Tiles/Backgrounds/tile_0013.png" id="2_o01ew"]
 
 [sub_resource type="Theme" id="Theme_rhdp7"]
 
@@ -21,7 +21,7 @@ script = ExtResource("1_nbf28")
 layout_mode = 0
 offset_right = 960.0
 offset_bottom = 540.0
-texture = ExtResource("2_o01ew")
+texture = ExtResource("1_kka4g")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

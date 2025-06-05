@@ -1,5 +1,8 @@
 extends Node
 
+var mode: String = "play"
+var level: int = 0
+
 signal collect_entity(collectable_entity_resource : BaseCollectableResource)
 
 signal on_coin_collected(value : int)
