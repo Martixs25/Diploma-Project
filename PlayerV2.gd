@@ -3,8 +3,8 @@ extends CharacterBody2D
 
 @onready var sprite_2d = $Sprite2D as Sprite2D
 @onready var animation_player = $AnimationPlayer as AnimationPlayer
-@export var move_speed : float = 300.0
-@export var jump_speed : float = 400.0
+@export var move_speed : float = 200.0
+@export var jump_speed : float = 250.0
 @export var fall_speed : float = 400.0
 @export var sprint_speed : float = 300.0
 @export var dash_speed : float = 100.0
@@ -22,6 +22,7 @@ func _ready():
 
 func _physics_process(delta):
 	
+
 	if not can_control: return
 	# Add the gravity.
 	apply_gravity(delta)
@@ -38,6 +39,7 @@ func _physics_process(delta):
 	
 	handle_dash()
 	
+	check_stats()
 
 
 
@@ -50,7 +52,6 @@ func handle_movement() -> void:
 	var sprint_active : bool = false
 	
 	velocity.x = 0.0
-	
 	if movement_direction < 0:
 		velocity.x = -move_speed
 	if movement_direction > 0:
@@ -87,6 +88,10 @@ func handle_jump() -> void:
 		print (double_jump)
 
 	clampf(velocity.y, jump_speed, fall_speed)
+	
+	if Input.is_action_just_released("jump"):
+		jump_active = false
+		velocity.y = falling_speed
 		
 func flip_character() -> void: 
 	if velocity.x != 0:
@@ -127,7 +132,17 @@ func handle_death() -> void:
 	reset_player()
 	
 func reset_player() -> void:
-	global_position = Vector2(250, 300)
+	global_position = Vector2(192, 372)
 	visible = true
 	can_control = true
-	
+	await get_tree().create_timer(0.1).timeout
+	sprint_speed = 300.0
+	if Input.is_key_label_pressed(KEY_SHIFT): move_speed = 500.0
+	else: move_speed = 200
+
+
+func check_stats():
+	print(move_speed)
+	print(sprint_speed)
+	print(velocity.x)
+

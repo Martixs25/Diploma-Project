@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c85r6akkfsbqt" path="res://Sprites/brackeys_platformer_assets/sprites/platforms.png" id="3_grery"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p3pe"]
-size = Vector2(248, 20)
+size = Vector2(246, 20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hcimu"]
 texture = ExtResource("2_ym5aa")
@@ -267,7 +267,7 @@ script = ExtResource("1_veygy")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(114, 0)
+position = Vector2(113, 0)
 shape = SubResource("RectangleShape2D_6p3pe")
 
 [node name="TileMap" type="TileMap" parent="."]
