@@ -8,12 +8,14 @@ extends Control
 @onready var answer4 = $LineEdit4
 @onready var dropdown = $OptionButton
 @onready var back_button = $Back_Button
+@onready var hint_button = $OptionButton2
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	save_button.button_down.connect(_on_save_button_pressed)
 	back_button.button_down.connect(_on_back_button_pressed)
+	hint_button.set_text("Something")
 
 func save_questions():
 	var save_data = {
@@ -48,3 +50,9 @@ func _on_option_button_toggled(toggled_on):
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
+func _on_option_button_2_toggled(toggled_on):
+	hint_button.set_text("")
+	hint_button.clear()
+	hint_button.add_item("No hint.")
+	hint_button.add_item("50/50 (Choose 2 correct answers)")
+	hint_button.add_item("Give a clue.")
