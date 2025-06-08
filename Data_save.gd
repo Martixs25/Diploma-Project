@@ -9,7 +9,7 @@ extends Control
 @onready var dropdown = $OptionButton
 @onready var back_button = $Back_Button
 @onready var hint_button = $OptionButton2
-
+var level_key = "Level_" + str(SignalBus.level)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +18,7 @@ func _ready():
 	hint_button.set_text("Something")
 
 func save_questions():
+	var previous_data : String 
 	var save_data = {
 		"Level_" + str(SignalBus.level):{
 		"Question": question.text,
@@ -28,11 +29,26 @@ func save_questions():
 		"Completed": false,
 		"Correct_Answer" : dropdown.get_item_text(dropdown.get_selected_id())}
 	}
+	var file_path = "res://save_game.save"
 	
-	var file = FileAccess.open("res://save_game.save", FileAccess.WRITE)
-	var json = JSON.stringify(save_data)
-	file.store_line(json)
-	file.close()
+	if FileAccess.file_exists(file_path): #getting the current save file
+		print("open_file")
+		var file = FileAccess.open("res://save_game.save", FileAccess.READ)
+		var json = file.get_line()
+		var data = JSON.parse_string(json)
+		var level_data = data.get(level_key, {})
+		file.close()
+			
+		if false in level_data.values() : #checking if the level has been completed
+			var file_write = FileAccess.open("res://save_game.save", FileAccess.WRITE)
+			data[level_key] = save_data
+			print(data)
+			var save = JSON.stringify(data)
+			print("save=", save)
+			file_write.store_line(save)
+			file_write.close()
+
+	else: print("Save file not found")
 
 
 func _on_save_button_pressed():

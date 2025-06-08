@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://question_editor"]
+
+[ext_resource path="res://Data_save.gd" type="Script" id=1]
+
+[node name="QuestionEditor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource(1)
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+modulate = Color(0.98, 0.98, 0.98)
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 40
+margin_top = 40
+margin_right = -40
+margin_bottom = -40
+
+[node name="VBox" type="VBoxContainer" parent="Panel/MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 16
+
+[node name="TitleLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+text = "Create a New Question"
+custom_fonts/font_size = 22
+
+[node name="QuestionInput" type="LineEdit" parent="Panel/MarginContainer/VBox"]
+placeholder_text = "Enter your question"
+size_flags_horizontal = 3
+
+[node name="Answer1Label" type="Label" parent="Panel/MarginContainer/VBox"]
+text = "Answer 1"
+
+[node name="Answer1" type="LineEdit" parent="Panel/MarginContainer/VBox"]
+placeholder_text = "Enter answer 1"
+size_flags_horizontal = 3
+
+[node name="Answer2Label" type="Label" parent="Panel/MarginContainer/VBox"]
+text = "Answer 2"
+
+[node name="Answer2" type="LineEdit" parent="Panel/MarginContainer/VBox"]
+placeholder_text = "Enter answer 2"
+size_flags_horizontal = 3
+
+[node name="Answer3Label" type="Label" parent="Panel/MarginContainer/VBox"]
+text = "Answer 3"
+
+[node name="Answer3" type="LineEdit" parent="Panel/MarginContainer/VBox"]
+placeholder_text = "Enter answer 3"
+size_flags_horizontal = 3
+
+[node name="Answer4Label" type="Label" parent="Panel/MarginContainer/VBox"]
+text = "Answer 4"
+
+[node name="Answer4" type="LineEdit" parent="Panel/MarginContainer/VBox"]
+placeholder_text = "Enter answer 4"
+size_flags_horizontal = 3
+
+[node name="CorrectAnswerSelector" type="OptionButton" parent="Panel/MarginContainer/VBox"]
+items = [ "Answer 1", "Answer 2", "Answer 3", "Answer 4" ]
+
+[node name="SaveButton" type="Button" parent="Panel/MarginContainer/VBox"]
+text = "Save Question"
+size_flags_horizontal = 3
+
+[node name="FeedbackLabel" type="Label" parent="Panel/MarginContainer/VBox"]
+text = ""
+custom_colors/font_color = Color(0, 0.6, 0)
+size_flags_horizontal = 3

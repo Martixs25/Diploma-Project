@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var move_speed : float = 200.0
 @export var jump_speed : float = 250.0
 @export var fall_speed : float = 400.0
-@export var sprint_speed : float = 300.0
+@export var sprint_speed : float = 100.0
 @export var dash_speed : float = 100.0
 @export var direction : bool
 @export var double_jump : bool = true
@@ -39,7 +39,7 @@ func _physics_process(delta):
 	
 	handle_dash()
 	
-	check_stats()
+	#check_stats()
 
 
 
@@ -136,8 +136,8 @@ func reset_player() -> void:
 	visible = true
 	can_control = true
 	await get_tree().create_timer(0.1).timeout
-	sprint_speed = 300.0
-	if Input.is_key_label_pressed(KEY_SHIFT): move_speed = 500.0
+	sprint_speed = 100.0
+	if Input.is_key_label_pressed(KEY_SHIFT): move_speed = 300.0
 	else: move_speed = 200
 
 
@@ -145,4 +145,5 @@ func check_stats():
 	print(move_speed)
 	print(sprint_speed)
 	print(velocity.x)
+	print(falling_speed)
 
