@@ -21,7 +21,7 @@ func load_question():
 	var file_path = "res://save_game.save"
 	if FileAccess.file_exists(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
-		var json = file.get_line()
+		var json = file.get_as_text()
 		file.close()
 		var data = JSON.parse_string(json)
 		print(data)
@@ -97,3 +97,4 @@ func check_answer(button: Button):
 		button.modulate = Color(1, 0, 0)  # green
 		await get_tree().create_timer(1.5).timeout
 		button.modulate = Color(1, 1, 1)  # reset
+		get_tree().change_scene_to_file("res://Levels/" + level_key +".tscn")

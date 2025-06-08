@@ -2,8 +2,8 @@ extends Control
 
 @onready var level_1_button = $Level1
 @onready var level_2_button = $Level2
-@onready var level_1 = preload("res://Levels/level1.tscn") as PackedScene
-@onready var level_2 = preload("res://Levels/level2.tscn") as PackedScene
+@onready var level_1 = preload("res://Levels/Level_1.tscn") as PackedScene
+@onready var level_2 = preload("res://Levels/Level_2.tscn") as PackedScene
 @onready var data_save = preload("res://main_menu/question_editor.tscn") as PackedScene
 var style = StyleBoxFlat.new()
 # Called when the node enters the scene tree for the first time.

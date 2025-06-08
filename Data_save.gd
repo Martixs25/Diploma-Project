@@ -39,14 +39,13 @@ func save_questions():
 		var level_data = data.get(level_key, {})
 		file.close()
 			
-		if false in level_data.values() : #checking if the level has been completed
-			var file_write = FileAccess.open("res://save_game.save", FileAccess.WRITE)
-			data[level_key] = save_data
-			print(data)
-			var save = JSON.stringify(data)
-			print("save=", save)
-			file_write.store_line(save)
-			file_write.close()
+		var file_write = FileAccess.open("res://save_game.save", FileAccess.WRITE)
+		data = save_data
+		print(data)
+		var save = JSON.stringify(data)
+		print("save=", save)
+		file_write.store_string(	save)
+		file_write.close()
 
 	else: print("Save file not found")
 
