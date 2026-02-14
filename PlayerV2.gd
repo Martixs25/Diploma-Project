@@ -14,6 +14,7 @@ extends CharacterBody2D
 var can_control : bool = true
 
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 const GRAVITY : float = 1000.0
 
@@ -22,7 +23,6 @@ func _ready():
 
 func _physics_process(delta):
 	
-
 	if not can_control: return
 	# Add the gravity.
 	apply_gravity(delta)
@@ -147,3 +147,4 @@ func check_stats():
 	print(velocity.x)
 	print(falling_speed)
 
+	

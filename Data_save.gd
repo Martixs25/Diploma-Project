@@ -15,44 +15,51 @@ var level_key = "Level_" + str(SignalBus.level)
 func _ready():
 	save_button.button_down.connect(_on_save_button_pressed)
 	back_button.button_down.connect(_on_back_button_pressed)
-	hint_button.set_text("Something")
+
 
 func save_questions():
-	var previous_data : String 
-	var save_data = {
-		"Level_" + str(SignalBus.level):{
+	var file_path = "res://save_game.save"
+	var data = {}
+
+	if FileAccess.file_exists(file_path):
+		var file = FileAccess.open(file_path, FileAccess.READ)
+		var json_text = file.get_as_text()
+		file.close()
+
+		data = JSON.parse_string(json_text)
+		if data == null:
+			data = {}
+
+	var level_key = "Level_" + str(SignalBus.level)
+
+	data[level_key] = {
 		"Question": question.text,
 		"Answer1": answer1.text,
 		"Answer2": answer2.text,
 		"Answer3": answer3.text,
 		"Answer4": answer4.text,
 		"Completed": false,
-		"Correct_Answer" : dropdown.get_item_text(dropdown.get_selected_id())}
+		"Correct_Answer": dropdown.get_item_text(dropdown.get_selected_id())
 	}
-	var file_path = "res://save_game.save"
-	
-	if FileAccess.file_exists(file_path): #getting the current save file
-		print("open_file")
-		var file = FileAccess.open("res://save_game.save", FileAccess.READ)
-		var json = file.get_line()
-		var data = JSON.parse_string(json)
-		var level_data = data.get(level_key, {})
-		file.close()
-			
-		var file_write = FileAccess.open("res://save_game.save", FileAccess.WRITE)
-		data = save_data
-		print(data)
-		var save = JSON.stringify(data)
-		print("save=", save)
-		file_write.store_string(	save)
-		file_write.close()
 
-	else: print("Save file not found")
+	var file_write = FileAccess.open(file_path, FileAccess.WRITE)
+	file_write.store_string(JSON.stringify(data))
+	file_write.close()
+
 
 
 func _on_save_button_pressed():
 	save_questions()
+	var style = save_button.get_theme_stylebox("normal").duplicate()
+	style.bg_color = Color(0, 0.6, 0)
+	save_button.add_theme_stylebox_override("normal", style)
 
+	save_button.text = "Saved!"
+	save_questions()
+
+	await get_tree().create_timer(3).timeout
+	save_button.text = "Save"
+	save_button.remove_theme_stylebox_override("normal")
 
 func _on_option_button_toggled(toggled_on):
 	$OptionButton.clear()
@@ -65,9 +72,4 @@ func _on_option_button_toggled(toggled_on):
 func _on_back_button_pressed():
 	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
-func _on_option_button_2_toggled(toggled_on):
-	hint_button.set_text("")
-	hint_button.clear()
-	hint_button.add_item("No hint.")
-	hint_button.add_item("50/50 (Choose 2 correct answers)")
-	hint_button.add_item("Give a clue.")
+

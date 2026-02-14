@@ -140,6 +140,7 @@ shape = SubResource("RectangleShape2D_dflae")
 texture = ExtResource("3_n25ig")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(0.80257, 0.822288)
 zoom = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

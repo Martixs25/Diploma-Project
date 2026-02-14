@@ -77,14 +77,6 @@ offset_top = 460.0
 offset_right = 493.0
 offset_bottom = 487.0
 
-[node name="OptionButton2" type="OptionButton" parent="."]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 458.0
-offset_right = 338.0
-offset_bottom = 485.0
-tooltip_text = "Choose Hint"
-
 [node name="QuestionEdit" type="TextEdit" parent="."]
 layout_mode = 0
 offset_left = 205.0
@@ -111,6 +103,5 @@ text = "Save"
 
 [connection signal="pressed" from="Back_Button" to="." method="_on_back_button_pressed"]
 [connection signal="toggled" from="OptionButton" to="." method="_on_option_button_toggled"]
-[connection signal="toggled" from="OptionButton2" to="." method="_on_option_button_2_toggled"]
 [connection signal="button_down" from="Save_Button" to="." method="_on_save_button_button_down"]
 [connection signal="pressed" from="Save_Button" to="." method="_on_save_button_pressed"]

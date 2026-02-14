@@ -1,0 +1,130 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjebwsk2yadcw"]
+
+[ext_resource type="Script" path="res://Pause.gd" id="1_2uqy7"]
+
+[sub_resource type="SystemFont" id="SystemFont_gudft"]
+font_names = PackedStringArray("Impact")
+
+[node name="Pause_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2uqy7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_right = 320.0
+offset_bottom = 250.0
+
+[node name="Seperator2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator3" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator4" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator5" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator6" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator7" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator8" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator24" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator25" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator26" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator27" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_gudft")
+theme_override_font_sizes/font_size = 25
+text = "Resume"
+
+[node name="Seperator9" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator10" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator11" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator12" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator13" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator14" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator15" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Select_Level" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_gudft")
+theme_override_font_sizes/font_size = 25
+text = "Select Level"
+
+[node name="Seperator16" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator17" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator18" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator19" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator20" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator21" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator22" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator23" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Main_Menu" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 32)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_gudft")
+theme_override_font_sizes/font_size = 25
+text = "Main Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Select_Level" to="." method="_on_select_level_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main_Menu" to="." method="_on_main_menu_pressed"]

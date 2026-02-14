@@ -1,7 +1,7 @@
-class_name level
+class_name Level
 extends Node2D
 
-@export var level_id : int
+@export var level_id : int = 3
 @export var level_start_pos : Node2D
 @onready var pause_menu = $CanvasLayer/Control/Pause_Menu
 

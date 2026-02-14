@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwlmg0qvl8a85"]
+
+[ext_resource type="AudioStream" uid="uid://co2y5odylips5" path="res://time_for_adventure.mp3" id="1_w4dny"]
+[ext_resource type="Script" path="res://Audio_Stream_Player.gd" id="2_sdtok"]
+
+[node name="Audio_Stream_Player" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_w4dny")
+script = ExtResource("2_sdtok")

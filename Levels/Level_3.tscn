@@ -1,0 +1,438 @@
+[gd_scene load_steps=26 format=3 uid="uid://bs4ehkpfoael2"]
+
+[ext_resource type="PackedScene" uid="uid://cjebwsk2yadcw" path="res://Pause.tscn" id="1_kcoj0"]
+[ext_resource type="Script" path="res://Levels/Level_3.gd" id="1_usqhc"]
+[ext_resource type="PackedScene" uid="uid://cggqyd53coaa" path="res://Player.tscn" id="2_g8i37"]
+[ext_resource type="PackedScene" uid="uid://c4t6kyoufuwde" path="res://Scenes/UI/ui_control.tscn" id="3_xpxi5"]
+[ext_resource type="Texture2D" uid="uid://c27j3sw455xyb" path="res://Sprites/Tilemap/tilemap_packed.png" id="4_pv50m"]
+[ext_resource type="Texture2D" uid="uid://w4csh12ufky5" path="res://Sprites/Free/Traps/Spikes/Idle.png" id="5_qmyfi"]
+[ext_resource type="PackedScene" uid="uid://v05djw03ju0p" path="res://Flag.tscn" id="7_6ycyo"]
+[ext_resource type="PackedScene" uid="uid://b3y41dyj8hisb" path="res://death_collision.tscn" id="7_jycg2"]
+[ext_resource type="PackedScene" uid="uid://bohphyixfbcti" path="res://Scenes/managers/collectable_manager.tscn" id="8_8f3y6"]
+[ext_resource type="PackedScene" uid="uid://dsv0uvbtednyl" path="res://Scenes/managers/player_stat_manager.tscn" id="9_1nj00"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7bom"]
+texture = ExtResource("4_pv50m")
+separation = Vector2i(1, 1)
+texture_region_size = Vector2i(17, 16)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+20:0/0 = 0
+21:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+20:2/0 = 0
+21:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
+20:3/0 = 0
+21:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+20:6/0 = 0
+21:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+16:7/0 = 0
+17:7/0 = 0
+18:7/0 = 0
+19:7/0 = 0
+20:7/0 = 0
+21:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+16:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+21:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+16:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+21:9/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ygs6m"]
+texture = ExtResource("5_qmyfi")
+separation = Vector2i(1, 1)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cvnkm"]
+sources/0 = SubResource("TileSetAtlasSource_t7bom")
+sources/1 = SubResource("TileSetAtlasSource_ygs6m")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4gtni"]
+size = Vector2(219, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt3g2"]
+size = Vector2(29.5, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nq3u6"]
+size = Vector2(7127, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7c31"]
+size = Vector2(14.5, 6.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tquwn"]
+size = Vector2(80.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji27o"]
+size = Vector2(50.25, 5.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0487"]
+size = Vector2(180, 111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hrfi"]
+size = Vector2(434.5, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yduq"]
+size = Vector2(17, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y23j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ke0qa"]
+size = Vector2(96.5, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73e4l"]
+size = Vector2(33, 20)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_usqhc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pause_Menu" parent="CanvasLayer/Control" instance=ExtResource("1_kcoj0")]
+process_mode = 1
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Entity_Container" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="Entity_Container" instance=ExtResource("2_g8i37")]
+position = Vector2(192, 372)
+
+[node name="UI_Container" type="CanvasLayer" parent="."]
+
+[node name="UI_Control" parent="UI_Container" instance=ExtResource("3_xpxi5")]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="Level_Container" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Level_Container"]
+rotation = -0.00256181
+tile_set = SubResource("TileSet_cvnkm")
+format = 2
+layer_0/tile_data = PackedInt32Array(1572873, 131072, 0, 1572874, 131072, 0, 1572875, 131072, 0, 1572876, 131072, 0, 1572877, 131072, 0, 1572878, 131072, 0, 1572879, 131072, 0, 1572880, 131072, 0, 1572881, 131072, 6, 1572882, 131072, 6, 1572883, 131072, 6, 1572890, 131072, 6, 1572891, 131072, 6, 1572892, 131072, 6, 1572884, 131072, 6, 1507349, 131072, 6, 1572895, 131072, 0, 1572896, 131072, 0, 1572897, 131072, 0, 1572898, 131072, 0, 1572885, 131072, 6, 1572886, 131072, 6, 1572887, 131072, 6, 1572888, 131072, 6, 1572889, 131072, 6, 1572893, 131072, 6, 1572894, 131072, 6, 1507345, 1, 0, 1507346, 1, 0, 1507347, 1, 0, 1507348, 1, 0, 1507350, 131072, 6, 1507351, 131072, 6, 1441815, 131072, 6, 1441816, 131072, 6, 1507352, 131072, 6, 1507353, 131072, 6, 1507354, 131072, 6, 1507358, 1, 0, 1507357, 1, 0, 1507356, 1, 0, 1507355, 1, 0, 1441818, 1, 0, 1441817, 1, 0, 1376280, 1, 0, 1376279, 1, 0, 1441814, 1, 0, 1441813, 1, 0, 1572899, 131072, 0, 1572900, 131072, 0, 1572901, 131072, 0, 1572902, 131072, 6, 1245221, 131072, 6, 1179685, 131072, 6, 1245223, 131072, 6, 1179687, 131072, 6, 1179686, 131072, 6, 1245222, 131072, 6, 1507366, 1, 0, 1572903, 131072, 0, 1572904, 131072, 0, 1572905, 131072, 0, 1572906, 131072, 0, 1310757, 1, 805306368, 1310758, 1, 805306368, 1310759, 1, 805306368, 1572907, 131072, 0, 1572908, 131072, 0, 1572909, 131072, 0, 1572910, 131072, 0, 1572912, 131072, 6, 1572913, 131072, 6, 1572914, 131072, 6, 1572915, 131072, 6, 1572911, 131072, 6, 1507375, 131072, 6, 1441839, 131072, 6, 1507376, 131072, 6, 1376303, 1, 0, 1441840, 131072, 6, 1441841, 131072, 6, 1441842, 131072, 6, 1441843, 131072, 6, 1507379, 131072, 6, 1507378, 131072, 6, 1507377, 131072, 6, 1572916, 131072, 0, 1572917, 131072, 0, 1572918, 131072, 0, 1572919, 131072, 0, 1572920, 131072, 0, 1572921, 131072, 0, 1376304, 1, 0, 1376305, 1, 0, 1376306, 1, 0, 1376307, 1, 0)
+
+[node name="Traps" type="Node" parent="Level_Container"]
+
+[node name="Death_collision" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(379, 376)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision"]
+position = Vector2(4.5, 6.5)
+shape = SubResource("RectangleShape2D_4gtni")
+
+[node name="Death_collision5" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(343, 346)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision5"]
+position = Vector2(9, 21)
+shape = SubResource("RectangleShape2D_qt3g2")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision5"]
+position = Vector2(41, 5)
+shape = SubResource("RectangleShape2D_qt3g2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision5"]
+position = Vector2(72, 21)
+shape = SubResource("RectangleShape2D_qt3g2")
+
+[node name="Death_collision2" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(-2124, 535)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision2"]
+position = Vector2(3552.5, 6.5)
+shape = SubResource("RectangleShape2D_nq3u6")
+
+[node name="Death_collision3" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(-2933, 368)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision3"]
+position = Vector2(3549.75, 13.25)
+shape = SubResource("RectangleShape2D_s7c31")
+
+[node name="Death_collision7" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(-2773, 350)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision7"]
+position = Vector2(3549.75, 13.25)
+shape = SubResource("RectangleShape2D_s7c31")
+
+[node name="Death_collision6" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(-2787, 343)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision6"]
+position = Vector2(3579.88, 13.25)
+shape = SubResource("RectangleShape2D_tquwn")
+
+[node name="Death_collision4" parent="Level_Container/Traps" instance=ExtResource("7_jycg2")]
+position = Vector2(-2948, 315)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Traps/Death_collision4"]
+position = Vector2(3564.88, 6.125)
+shape = SubResource("RectangleShape2D_ji27o")
+
+[node name="Walls" type="StaticBody2D" parent="Level_Container"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level_Container/Walls"]
+visibility_layer = 31
+position = Vector2(198, 441)
+shape = SubResource("RectangleShape2D_h0487")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(710.75, 392)
+shape = SubResource("RectangleShape2D_0hrfi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(760.5, 367.5)
+shape = SubResource("RectangleShape2D_7yduq")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(825, 368)
+shape = SubResource("RectangleShape2D_7yduq")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(776, 376)
+shape = SubResource("RectangleShape2D_1y23j")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(384.75, 376.5)
+shape = SubResource("RectangleShape2D_ke0qa")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Level_Container/Walls"]
+position = Vector2(384.5, 361)
+shape = SubResource("RectangleShape2D_73e4l")
+
+[node name="Flag" parent="." instance=ExtResource("7_6ycyo")]
+position = Vector2(914, 350)
+collision_layer = 6
+collision_mask = 2
+
+[node name="Manager_Container" type="Node" parent="."]
+
+[node name="Collectable_Manager" parent="Manager_Container" instance=ExtResource("8_8f3y6")]
+
+[node name="Player_Stat_Manager" parent="Manager_Container" instance=ExtResource("9_1nj00")]
+
+[node name="Player_Start" type="Node2D" parent="Manager_Container"]
+position = Vector2(250, 300)
